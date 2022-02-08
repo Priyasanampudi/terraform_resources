@@ -13,11 +13,15 @@ variable "network_security_group_name" {
   type = string
 }
 
-variable "virtual_network_name" {
+variable "vnet_name" {
   description = "Name of the virtual network"
   type = string
 }
 variable "network_security_rule_name" {
+    description = "Name of the nsg rules"
+    type = string
+}
+variable "vnet_address_space" {
     description = "Name of the nsg rules"
     type = string
 }
