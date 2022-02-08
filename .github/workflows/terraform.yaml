@@ -1,0 +1,50 @@
+name: "Terraform Deploy"
+on:
+  push:
+    branches:
+      - master
+
+# Update secrets TF_VAR_agent_client_id, TF_VAR_agent_client_secret, TF_VAR_subscription_id, TF_VAR_tenant_id in the GitHub repository. 
+# For steps to create and store secrets, please check https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets
+
+jobs:
+  terraform:
+    name: "Terraform"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@dev
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+
+      - name: "Terraform Format"
+        id: fmt
+        run: terraform fmt
+
+      - name: "Terraform Init"
+        id: init
+        run: terraform init
+
+      - name: "Terraform Validate"
+        id: validate
+        run: terraform validate -no-color
+
+      - name: "Terraform Plan"
+        id: plan
+        run: terraform plan -no-color
+        env:
+          AZURE_AD_TENANT_ID: ${{secrets.tenantId}}
+          AZURE_SUBSCRIPTION_ID: ${{secrets.subscriptionId}}
+          AZURE_AD_CLIENT_ID: ${{secrets.clientId}}
+          AZURE_AD_CLIENT_SECRET: ${{secrets.clientSecret}}
+
+
+      - name: "Terraform Apply"
+        id: apply
+        run: terraform apply
+        env:
+          AZURE_AD_TENANT_ID: ${{secrets.tenantId}}
+          AZURE_SUBSCRIPTION_ID: ${{secrets.subscriptionId}}
+          AZURE_AD_CLIENT_ID: ${{secrets.clientId}}
+          AZURE_AD_CLIENT_SECRET: ${{secrets.clientSecret}}
