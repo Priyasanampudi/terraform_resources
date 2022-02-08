@@ -34,8 +34,3 @@ module "azurerm_subnet" {
     address_prefix = "var.subnet_address_space"
     security_group = azurerm_network_security_group.nsg.id
 }
-
-tags = {
-    createdBy = "Priyanka"
-    application = "DigitalIntegrationHubAccelerator"
-}
