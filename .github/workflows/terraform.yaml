@@ -26,13 +26,9 @@ jobs:
         id: init
         run: terraform init
 
-      - name: "Terraform Validate"
-        id: validate
-        run: terraform validate -var-file=terraform.tfvars
-
       - name: "Terraform Plan"
         id: plan
-        run: terraform plan -var-file=terraform.tfvars
+        run: terraform plan vnet
         env:
           AZURE_AD_TENANT_ID: ${{secrets.tenantId}}
           AZURE_SUBSCRIPTION_ID: ${{secrets.subscriptionId}}
