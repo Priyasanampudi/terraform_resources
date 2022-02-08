@@ -29,11 +29,10 @@ module "azurerm_virtual_network" {
     address_space             = ["172.16.0.0/16"]
 }
 module "azurerm_subnet" {
-    source = "git::https://github.com/Priyasanampudi/terraform_resources.git//modules/tf-module-vnet?ref=main"
+    source = "git::https://github.com/Priyasanampudi/terraform_resources.git//modules/tf-module-subnet?ref=main"
     name                 = var.azurerm_subnet
     vnet_name            = var.virtual_network_name
     resource_group_name  = azurerm_resource_group.rg.name
-    dns_servers          = "azure DNS"
     address_prefixes     = var.subnet_address_space
     tags                 = var.tags
 }
