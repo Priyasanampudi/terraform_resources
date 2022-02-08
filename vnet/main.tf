@@ -21,14 +21,14 @@ resource "azurerm_network_security_rule" "nsgrules" {
   network_security_group_name = azurerm_network_security_group.nsg.name
 }
 module "azurerm_virtual_network" {
-    source = "git::https://github.com/Priyasanampudi/terraform_resources/modules.git//tf-module-vnet?ref=dev"
+    source = "git::https://github.com/Priyasanampudi/terraform_resources.git//modules/tf-module-vnet?ref=main"
     name                      = var.virtual_network_name
     resource_group_name       = azurerm_resource_group.rg.name
     location                  = azurerm_resource_group.rg.location    
     address_space             = ["172.16.0.0/16"]
 }
 module "azurerm_subnet" {
-    source = "git::https://github.com/Priyasanampudi/terraform_resources/tree/dev/modules/tf-module-subnet"
+    source = "git::https://github.com/Priyasanampudi/terraform_resources.git//modules/tf-module-vnet?ref=main"
     depends_on           = [module.azurerm_virtual_network]
     name           = "var.subnet_name"
     address_prefix = "var.subnet_address_space"
