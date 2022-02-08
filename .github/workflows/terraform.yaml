@@ -28,7 +28,7 @@ jobs:
 
       - name: "Terraform Plan"
         id: plan
-        run: terraform plan vnet
+        run: terraform plan
         env:
           AZURE_AD_TENANT_ID: ${{secrets.tenantId}}
           AZURE_SUBSCRIPTION_ID: ${{secrets.subscriptionId}}
