@@ -30,7 +30,9 @@ module "azurerm_virtual_network" {
 module "azurerm_subnet" {
     source = "git::https://github.com/Priyasanampudi/terraform_resources.git//modules/tf-module-vnet?ref=main"
     depends_on           = [module.azurerm_virtual_network]
-    name           = "var.subnet_name"
-    address_prefix = "var.subnet_address_space"
-    security_group = azurerm_network_security_group.nsg.id
+    vnet_name            = "var.virtual_network_name"
+    resource_group_name  = azurerm_resource_group.rg.name
+    name                 = "var.azurerm_subnet"
+    subnet_address_space = "var.subnet_address_space"
+    tags                 = var.tags
 }
