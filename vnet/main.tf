@@ -32,6 +32,6 @@ module "azurerm_subnet" {
     vnet_name            = "var.virtual_network_name"
     resource_group_name  = azurerm_resource_group.rg.name
     azurerm_subnet       = "var.azurerm_subnet"
-    subnet_address_space = "var.subnet_address_space"
+    address_prefixes     = "var.subnet_address_space"
     tags                 = var.tags
 }
