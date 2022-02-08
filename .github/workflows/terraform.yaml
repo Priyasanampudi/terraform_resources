@@ -26,9 +26,9 @@ jobs:
         run: terraform init
 
       - name: "Terraform Plan"
-        with:
-          tf_actions_subcommand: 'plan'
-          tf_actions_working_dir: "./vnet"
+        id: plan
+        run: terraform plan -var-file=terraform.tfvars
+        working-directory: "./vnet"
         env:
           ARM_TENANT_ID: ${{secrets.AZURE_AD_TENANT_ID}}
           ARM_SUBSCRIPTION_ID: ${{secrets.AZURE_SUBSCRIPTION_ID}}
