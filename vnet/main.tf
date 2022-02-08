@@ -33,6 +33,7 @@ module "azurerm_subnet" {
     name                 = var.azurerm_subnet
     vnet_name            = var.virtual_network_name
     resource_group_name  = azurerm_resource_group.rg.name
+    dns_servers          = "azure DNS"
     address_prefixes     = var.subnet_address_space
     tags                 = var.tags
 }
