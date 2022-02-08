@@ -28,11 +28,11 @@ jobs:
 
       - name: "Terraform Validate"
         id: validate
-        run: terraform validate -no-color
+        run: terraform validate -var-file=terraform.tfvars
 
       - name: "Terraform Plan"
         id: plan
-        run: terraform plan -no-color
+        run: terraform plan -var-file=terraform.tfvars
         env:
           AZURE_AD_TENANT_ID: ${{secrets.tenantId}}
           AZURE_SUBSCRIPTION_ID: ${{secrets.subscriptionId}}
@@ -42,7 +42,7 @@ jobs:
 
       - name: "Terraform Apply"
         id: apply
-        run: terraform apply
+        run: terraform apply -var-file=terraform.tfvars
         env:
           AZURE_AD_TENANT_ID: ${{secrets.tenantId}}
           AZURE_SUBSCRIPTION_ID: ${{secrets.subscriptionId}}
