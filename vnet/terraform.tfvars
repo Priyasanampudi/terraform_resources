@@ -1,0 +1,20 @@
+<<<<<<< HEAD
+location                     = "eastus"
+resource_group_name          = "DigiHubRG"
+network_security_group_name  = "diha-nsg-dev"
+virtual_network_name         = "diha-vnet"
+network_security_rule_name   = "diha-nsg-rules"
+subnet_name1                 = "APIManagementSubnet"
+subnet_name2                 = "GatewaySubnet"
+subnet_name3                 = "Core_Subnet"
+=======
+location                     = "eastus"
+resource_group_name          = "DigiHubRG"
+network_security_group_name  = "diha-nsg-dev"
+virtual_network_name         = "diha-vnet"
+network_security_rule_name   = "diha-nsg-rules"
+subnet_name1                 = "APIManagementSubnet"
+subnet_name2                 = "GatewaySubnet"
+subnet_name3                 = "Core_Subnet"
+>>>>>>> dc1931cff0bb0ef136ae83715bd1e41cb4b8c026
+subnet_name4                 = "Connector_Subnet"
