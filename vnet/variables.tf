@@ -21,11 +21,15 @@ variable "network_security_rule_name" {
     description = "Name of the nsg rules"
     type = string
 }
-variable "subnet_name" {
+variable "azurerm_subnet" {
     description = "Name of the subnet"
     type = string
 }
-variable "address_prefix_subnet" {
+variable "subnet_address_space" {
     description = "adress prefix of subnet"
+    type = string
+}
+variable "tags" {
+    description = "tags"
     type = string
 }
