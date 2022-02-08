@@ -4,8 +4,7 @@ on:
     branches:
       - main
 
-# Update secrets TF_VAR_agent_client_id, TF_VAR_agent_client_secret, TF_VAR_subscription_id, TF_VAR_tenant_id in the GitHub repository. 
-# For steps to create and store secrets, please check https://docs.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets
+# Update secrets workflows/creating-and-storing-encrypted-secrets
 
 jobs:
   terraform:
@@ -27,20 +26,21 @@ jobs:
         run: terraform init
 
       - name: "Terraform Plan"
-        id: plan
-        run: terraform plan
+        with:
+          tf_actions_subcommand: 'init'
+          tf_actions_working_dir: "./vnet"
         env:
-          AZURE_AD_TENANT_ID: ${{secrets.tenantId}}
-          AZURE_SUBSCRIPTION_ID: ${{secrets.subscriptionId}}
-          AZURE_AD_CLIENT_ID: ${{secrets.clientId}}
-          AZURE_AD_CLIENT_SECRET: ${{secrets.clientSecret}}
+          ARM_TENANT_ID: ${{secrets.AZURE_AD_TENANT_ID}}
+          ARM_SUBSCRIPTION_ID: ${{secrets.AZURE_SUBSCRIPTION_ID}}
+          ARM_CLIENT_ID: ${{secrets.AZURE_AD_CLIENT_ID}}
+          ARM_CLIENT_SECRET: ${{secrets.AZURE_AD_CLIENT_SECRET}}
 
 
       - name: "Terraform Apply"
         id: apply
         run: terraform apply -var-file=terraform.tfvars
         env:
-          AZURE_AD_TENANT_ID: ${{secrets.tenantId}}
-          AZURE_SUBSCRIPTION_ID: ${{secrets.subscriptionId}}
-          AZURE_AD_CLIENT_ID: ${{secrets.clientId}}
-          AZURE_AD_CLIENT_SECRET: ${{secrets.clientSecret}}
+          ARM_TENANT_ID: ${{secrets.AZURE_AD_TENANT_ID}}
+          ARM_SUBSCRIPTION_ID: ${{secrets.AZURE_SUBSCRIPTION_ID}}
+          ARM_CLIENT_ID: ${{secrets.AZURE_AD_CLIENT_ID}}
+          ARM_CLIENT_SECRET: ${{secrets.AZURE_AD_CLIENT_SECRET}}
