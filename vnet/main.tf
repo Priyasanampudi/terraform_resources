@@ -20,13 +20,13 @@ resource "azurerm_network_security_rule" "nsgrules" {
   resource_group_name         = azurerm_resource_group.rg.name
   network_security_group_name = azurerm_network_security_group.nsg.name
 }
-module "azurerm_virtual_network" {
+module "vnet" {
     source = "git::https://github.com/Priyasanampudi/terraform_resources.git//modules/tf-module-vnet?ref=main"
-    name                      = var.virtual_network_name
+    name                      = var.vnet_name
     resource_group_name       = azurerm_resource_group.rg.name
     location                  = azurerm_resource_group.rg.location 
     dns_servers               = "azure DNS"
-    address_space             = ["172.16.0.0/16"]
+    address_space             = var.vnet_address_space
     tags                      = var.tags
 }
 module "apimsubnet" {
