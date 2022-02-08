@@ -21,7 +21,7 @@ variable "network_security_rule_name" {
     description = "Name of the nsg rules"
     type = string
 }
-variable "azurerm_subnet" {
+variable "subnet_name" {
     description = "Name of the subnet"
     type = string
 }
