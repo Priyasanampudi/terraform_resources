@@ -36,7 +36,11 @@ jobs:
         id: plan
         run: terraform plan -var-file=terraform.tfvars
         working-directory: "./vnet"
-        
+        env:
+          ARM_TENANT_ID: ${{secrets.AZURE_AD_TENANT_ID}}
+          ARM_SUBSCRIPTION_ID: ${{secrets.AZURE_SUBSCRIPTION_ID}}
+          ARM_CLIENT_ID: ${{secrets.AZURE_AD_CLIENT_ID}}
+          ARM_CLIENT_SECRET: ${{secrets.AZURE_AD_CLIENT_SECRET}}        
 
 
       - name: "Terraform Apply"
