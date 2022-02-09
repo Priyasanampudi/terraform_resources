@@ -27,5 +27,3 @@ module "vnet" {
   dns_servers = "azure DNS"
   tags = var.tags  
 }
-}
-
