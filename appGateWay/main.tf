@@ -100,14 +100,13 @@ resource "azurerm_application_gateway" "network" {
 
   frontend_port {
     name = local.frontend_port_name
-    subnet_id            = module.agwsubnet.id
-    private_ip_address_allocation = var.private_ip_address_allocation
-    private_ip_address   = var.private_ip_address
+    port = 80
   }
 
   frontend_ip_configuration {
     name                 = local.frontend_ip_configuration_name
     public_ip_address_id = module.publicip.id
+    
   }
 
   backend_address_pool {
