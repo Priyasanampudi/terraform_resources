@@ -14,9 +14,9 @@ gateway_ip_configuration = {
     name = "gateway-ip-configuration"
 }
 sku = {
-    name = "Standard_Small"
-    tier = "Standard"
-    capacity = 2
+    name = "Standard_v2"
+    tier = "Standard_v2"
+    capacity = 1
 }
 tags = {
     Purpose         = "App gateway"
