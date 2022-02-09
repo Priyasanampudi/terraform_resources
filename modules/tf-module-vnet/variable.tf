@@ -13,7 +13,7 @@ variable "vnet_address_space" {
 }
 # If no values specified, this defaults to Azure DNS 
 variable "dns_servers" {
-  type        = list(string)
+  type        = string
   description = "The DNS servers to be used with vNet. default is Azure DNS"
 }
 variable "tags"{
