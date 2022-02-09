@@ -24,7 +24,7 @@ module "vnet" {
   source = "git::https://github.com/Priyasanampudi/terraform_resources.git//modules/tf-module-vnet?ref=main"
   vnet_name                 = var.vnet_name
   resource_group_name       = var.resource_group_name
-  location                  = azurerm_resource_group.rg.location 
+  location                  = var.location 
   dns_servers               = "azure DNS"
   vnet_address_space        = var.vnet_address_space
   tags                      = var.tags  
