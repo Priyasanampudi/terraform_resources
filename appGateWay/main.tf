@@ -75,6 +75,11 @@ module "publicip" {
 locals {
   frontend_ip_configuration_name = "${var.vnet_name}-feip"
   frontend_ip_configuration_name_public = "${var.vnet_name}-feip-public"
+  backend_address_pool_name      = "${var.vnet_name}-beap"
+  frontend_port_name             = "${var.vnet_name}-feport"
+  http_setting_name              = "${var.vnet_name}-be-htst"
+  listener_name                  = "${var.vnet_name}-httplstn"
+  request_routing_rule_name      = "${var.vnet_name}-rqrt"
 }
 # ---------- Create Application Gateway ------------
 resource "azurerm_application_gateway" "network" {
