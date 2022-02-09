@@ -23,7 +23,7 @@ variable "network_security_rule_name" {
 }
 variable "vnet_address_space" {
     description = "Name of the nsg rules"
-    type = string
+    type = list(string)
 }
 variable "tags" {
     description = "tags"
