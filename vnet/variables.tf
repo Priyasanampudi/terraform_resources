@@ -27,5 +27,4 @@ variable "vnet_address_space" {
 }
 variable "tags" {
     description = "tags"
-    type = string
 }
