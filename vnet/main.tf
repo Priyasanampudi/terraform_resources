@@ -22,11 +22,5 @@ resource "azurerm_network_security_rule" "nsgrules" {
 }
 module "vnet" {
     source = "git::https://github.com/Priyasanampudi/terraform_resources.git//modules/tf-module-vnet?ref=main"
-    name                      = "myvnet456"
-    resource_group_name       = azurerm_resource_group.rg.name
-    location                  = azurerm_resource_group.rg.location 
-    dns_servers               = "azure DNS"
-    address_space             = var.vnet_address_space
-    tags                      = var.tags
 }
 
