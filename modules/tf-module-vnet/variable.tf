@@ -15,6 +15,10 @@ variable "dns_servers" {
   type        = string
   description = "The DNS servers to be used with vNet. default is Azure DNS"
 }
+variable "location" {
+  type        = string
+  description = "location of resource to be deployed"
+}
 variable "tags"{
 }
 
