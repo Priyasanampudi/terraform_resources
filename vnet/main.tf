@@ -26,5 +26,6 @@ module "vnet" {
   resource_group_name       = var.resource_group_name 
   dns_servers               = "azure DNS"
   vnet_address_space        = var.vnet_address_space
+  location                  = var.location
   tags                      = var.tags  
 }
