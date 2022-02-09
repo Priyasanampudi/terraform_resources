@@ -7,9 +7,8 @@ variable "vnet_name"{
   description = "Provide vnet name"
 }
 variable "vnet_address_space" {
-  type        = string
+  type        = list(string)
   description = "The address space that is used by the virtual network."
-  default     = ["172.16.0.0/16"]
 }
 # If no values specified, this defaults to Azure DNS 
 variable "dns_servers" {
