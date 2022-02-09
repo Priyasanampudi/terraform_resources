@@ -10,8 +10,8 @@ data "azurerm_virtual_network" "vnet" {
 # ------------- Create Subnet -------------
 resource "azurerm_subnet" "subnet" {
   name                                            = var.subnet_name
-  resource_group_name                             = azurerm_resource_group.rg.name
+  resource_group_name                             = data.azurerm_resource_group.rg.name
   virtual_network_name                            = var.vnet_name
   address_prefixes                                = var.subnet_address_space
-  # enforce_private_link_endpoint_network_policies  = var.enforce_private_link_endpoint_network_policies
+  enforce_private_link_endpoint_network_policies  = var.enforce_private_link_endpoint_network_policies
 }
