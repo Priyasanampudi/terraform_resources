@@ -2,8 +2,11 @@ location                     = "eastus"
 resource_group_name          = "DigiHubRG"
 app_service_plan             = "asp-diha"
 source_config = {
-    tier = "Standard"
-    size = "S1"
+    name = "B1"
+    tier = "Basic"
+    size = "B1"
+    family = "B"
+    capacity = 1
 }
 site_config = {
     dotnet_framework_version = "v4.0"
