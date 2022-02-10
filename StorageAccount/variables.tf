@@ -26,6 +26,10 @@ variable "account_tier" {
   description = "tier"
   type = string
 }
+variable "service_endpoints" {
+  description = "service endpoints"
+  type = string
+}
 variable "account_replication_type" {
   description = "replication"
   type = string
