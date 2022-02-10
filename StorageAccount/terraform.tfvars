@@ -1,6 +1,6 @@
 location                     = "eastus"
 resource_group_name          = "DigiHubRG"
-storage_account_name         = "dihasadev"
+storage_account_name         = "dihasapri"
 vnet_name                    = "diha-vnet"
 subnet_name                  = "Core_Subnet"
 subnet_address_space         = ["172.16.3.0/24"]
