@@ -32,5 +32,4 @@ variable "account_replication_type" {
 }
 variable "tags" {
   description = "tags"
-  type = string
 }
