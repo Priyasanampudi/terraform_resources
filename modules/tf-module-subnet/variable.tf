@@ -19,3 +19,7 @@ variable "enforce_private_link_endpoint_network_policies" {
     description = "private_link_endpoint_network_policies"
     default = true
 }
+variable "service_endpoints_storage" {
+    type = list(string)
+    description = "service"
+}
