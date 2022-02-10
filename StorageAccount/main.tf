@@ -29,5 +29,4 @@ resource "azurerm_storage_account_network_rules" "sa_rules" {
 
   default_action             = "Allow"
   bypass                     = ["AzureServices"]
-  subnet_id                  = module.coresubnet.id
 }
