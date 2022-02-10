@@ -29,6 +29,6 @@ resource "azurerm_storage_account_network_rules" "sa_rules" {
 
   default_action             = "Allow"
   ip_rules                   = ["127.0.0.1"]
-  virtual_network_subnet_ids = module.coresubnet.id
+  virtual_network_subnet_ids = data.vnet.id
   bypass                     = ["Metrics"]
 }
