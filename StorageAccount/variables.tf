@@ -10,13 +10,17 @@ variable "storage_account_name" {
   description = "Name of the storage account"
   type = string
 }
-variable "virtual_network_name" {
+variable "vnet_name" {
   description = "Name of the storage account"
   type = string
 }
 variable "subnet_name" {
   description = "Name of the storage account"
   type = string
+}
+variable "subnet_address_space" {
+    type = list(string)
+    description = "Subnet prefix address list"
 }
 variable "account_tier" {
   description = "tier"
