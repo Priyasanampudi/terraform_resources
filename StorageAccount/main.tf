@@ -11,7 +11,8 @@ module "coresubnet" {
   resource_group_name  = var.resource_group_name
   subnet_name          = var.subnet_name
   subnet_address_space = var.subnet_address_space
-  service_endpoints    = var.service_endpoints
+  service_endpoints     = []
+  enforce_private_link_endpoint_network_policies = true
 }
 module "storageAccount" {
   source                   = "git::https://github.com/Priyasanampudi/terraform_resources.git//modules/tf-module-storage-account?ref=main"
