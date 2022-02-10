@@ -5,4 +5,8 @@ virtual_network_name         = "diha-vnet"
 subnet_name                  = "Core_Subnet"
 account_tier                 = "Standard"
 account_replication_type     = "GRS"
+tags = {
+    ApplicationName = "DIHA"
+    Environment     = "dev"
+}
 
