@@ -10,11 +10,14 @@ variable "app_service_plan" {
   description = "Name of the app service plan"
   type = string
 }
-variable "sku" {
+variable "source_config" {
   description = "The object to configure app service sku."
   type = object({
+    name = string
     tier = string
     size = string
+    family = string
+    capacity = string 
   })
 }
 variable "site_config" {
