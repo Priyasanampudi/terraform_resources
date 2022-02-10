@@ -24,8 +24,6 @@ module "storageAccount" {
 
 resource "azurerm_storage_account_network_rules" "sa_rules" {
   storage_account_id = module.storageAccount.id
-  resource_group_name  = var.resource_group_name
-  storage_account_name = module.storageAccount.name
 
   default_action             = "Allow"
   bypass                     = ["AzureServices"]
