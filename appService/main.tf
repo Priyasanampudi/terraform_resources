@@ -6,7 +6,7 @@ resource "azurerm_app_service_plan" "asp" {
   name                = var.app_service_plan
   location            = var.location
   resource_group_name = var.resource_group_name
-  sku                 = var.sku
+  source_config       = var.source_config
 }
 
 resource "azurerm_app_service" "appservice" {
