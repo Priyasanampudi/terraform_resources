@@ -7,11 +7,8 @@ resource "azurerm_app_service_plan" "asp" {
   location            = var.location
   resource_group_name = var.resource_group_name
   sku  {
-    name = "B1"
-    tier = "Basic"
-    size = "B1"
-    family = "B"
-    capacity = 1
+    tier = "Standard"
+    size = "S1"
   }
 }
 
