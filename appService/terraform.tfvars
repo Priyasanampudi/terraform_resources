@@ -1,7 +1,7 @@
 location                     = "eastus"
 resource_group_name          = "DigiHubRG"
 app_service_plan             = "asp-diha"
-sku = {
+source_config = {
     tier = "Standard"
     size = "S1"
 }
