@@ -28,7 +28,6 @@ resource "azurerm_storage_account_network_rules" "sa_rules" {
   storage_account_name = module.storageAccount.name
 
   default_action             = "Allow"
-  ip_rules                   = ["127.0.0.1"]
-  vnet_subnet_ids            = module.coresubnet.id
-  bypass                     = ["Metrics"]
+  bypass                     = ["AzureServices"]
+  subnet_id                  = module.coresubnet.id
 }
