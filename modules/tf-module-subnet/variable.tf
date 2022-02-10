@@ -17,7 +17,7 @@ variable "subnet_address_space" {
 variable "enforce_private_link_endpoint_network_policies" {
     type = bool
     description = "private_link_endpoint_network_policies"
-    default = true
+    default = false
 }
 variable "service_endpoints" {
     type = list(string)
