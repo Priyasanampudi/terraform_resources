@@ -23,12 +23,12 @@ module "storageAccount" {
 }
 
 resource "azurerm_storage_account_network_rules" "sa_rules" {
-  storage_account_id = module.storageAccount.stacnt.id
+  storage_account_id = module.storageAccount.id
   resource_group_name  = var.resource_group_name
   storage_account_name = module.storageAccount.name
 
   default_action             = "Allow"
   ip_rules                   = ["127.0.0.1"]
-  virtual_network_subnet_ids = module.coresubnet.subnet.id
+  virtual_network_subnet_ids = module.coresubnet.id
   bypass                     = ["Metrics"]
 }
