@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 data "azurerm_resource_group" "rg" {
   name     = var.resource_group_name
 }
@@ -6,55 +5,29 @@ data "azurerm_virtual_network" "vnet" {
     name                     = var.virtual_network_name
     resource_group_name      = var.resource_group_name
 }
-data "azurerm_subnet" "subnet" {
-    name                 = var.subnet_name
-    resource_group_name  = var.resource_group_name
-    virtual_network_name = var.virtual_network_name 
+module "coresubnet" {
+  source               = "git::https://github.com/Priyasanampudi/terraform_resources.git//modules/tf-module-subnet?ref=main"
+  vnet_name            = var.vnet_name
+  resource_group_name  = var.resource_group_name
+  subnet_name          = var.subnet_name
+  subnet_address_space = var.subnet_address_space
 }
-resource "azurerm_storage_account" "sa" {
-  name                     = var.storage_account_name
+module "storageAccount" {
+  source                   = "git::https://github.com/Priyasanampudi/terraform_resources.git//modules/tf-module-storage-account?ref=main"
+  storage_account_name     = var.storage_account_name
   resource_group_name      = var.resource_group_name
   location                 = var.location
-  account_tier             = "Standard"
-  account_replication_type = "GRS"
+  account_tier             = var.account_tier
+  account_replication_type = var.account_replication_type
 }
 
 resource "azurerm_storage_account_network_rules" "sa_rules" {
+  storage_account_id = module.storageAccount.stacnt.id
   resource_group_name  = var.resource_group_name
-  storage_account_name = azurerm_storage_account.sa.name
+  storage_account_name = module.storageAccount.name
 
   default_action             = "Allow"
-#   ip_rules                   = ["127.0.0.1"]
-#   virtual_network_subnet_ids = "${azurerm_subnet.id}"
-#   bypass                     = ["Metrics"]
-=======
-data "azurerm_resource_group" "rg" {
-  name     = var.resource_group_name
-}
-data "azurerm_virtual_network" "vnet" {
-    name                     = var.virtual_network_name
-    resource_group_name      = var.resource_group_name
-}
-data "azurerm_subnet" "subnet" {
-    name                 = var.subnet_name
-    resource_group_name  = var.resource_group_name
-    virtual_network_name = var.virtual_network_name 
-}
-resource "azurerm_storage_account" "sa" {
-  name                     = var.storage_account_name
-  resource_group_name      = var.resource_group_name
-  location                 = var.location
-  account_tier             = "Standard"
-  account_replication_type = "GRS"
-}
-
-resource "azurerm_storage_account_network_rules" "sa_rules" {
-  resource_group_name  = var.resource_group_name
-  storage_account_name = azurerm_storage_account.sa.name
-
-  default_action             = "Allow"
-#   ip_rules                   = ["127.0.0.1"]
-#   virtual_network_subnet_ids = "${azurerm_subnet.id}"
-#   bypass                     = ["Metrics"]
->>>>>>> dc1931cff0bb0ef136ae83715bd1e41cb4b8c026
+  ip_rules                   = ["127.0.0.1"]
+  virtual_network_subnet_ids = module.coresubnet.subnet.id
+  bypass                     = ["Metrics"]
 }
