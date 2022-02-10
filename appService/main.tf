@@ -6,7 +6,13 @@ resource "azurerm_app_service_plan" "asp" {
   name                = var.app_service_plan
   location            = var.location
   resource_group_name = var.resource_group_name
-  source_config       = var.source_config
+  sku  {
+    name = "B1"
+    tier = "Basic"
+    size = "B1"
+    family = "B"
+    capacity = 1
+  }
 }
 
 resource "azurerm_app_service" "appservice" {
