@@ -27,7 +27,7 @@ module "storageAccount" {
 resource "azurerm_storage_account_network_rules" "sa_rules" {
   storage_account_id = module.storageAccount.id
 
-  default_action             = "Allow"
-  bypass                     = ["AzureServices"]
+  default_action             = "Deny"
+  bypass                     = ["Metrics"]
   virtual_network_subnet_ids = [module.coresubnet.id]
 }
