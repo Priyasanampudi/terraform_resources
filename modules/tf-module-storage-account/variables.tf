@@ -18,6 +18,10 @@ variable "account_replication_type" {
     type = string
     description = "Account replication type"
 }
+variable "service_endpoints" {
+  description = "service endpoints"
+  type = string
+}
 variable "tags" {
     description = "Provide tags for this resource"
 }
