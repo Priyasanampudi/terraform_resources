@@ -21,6 +21,7 @@ module "storageAccount" {
   account_tier             = var.account_tier
   account_replication_type = var.account_replication_type
   tags                     = var.tags
+  service_endpoints        = var.service_endpoints
 }
 
 resource "azurerm_storage_account_network_rules" "sa_rules" {
