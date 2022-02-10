@@ -26,3 +26,7 @@ variable "account_replication_type" {
   description = "replication"
   type = string
 }
+variable "tags" {
+  description = "tags"
+  type = string
+}
