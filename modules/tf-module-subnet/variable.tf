@@ -20,6 +20,6 @@ variable "enforce_private_link_endpoint_network_policies" {
     default = false
 }
 variable "service_endpoints" {
-    type = list(string)
+    type = string
     description = "service"
 }
