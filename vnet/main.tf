@@ -2,10 +2,12 @@ resource "azurerm_resource_group" "rg" {
   name     = var.resource_group_name
   location = var.location
 }
-resource "azurerm_network_security_group" "nsg" {
-    name                      = var.network_security_group_name
+module "nsg" {
+    source = "git::https://github.com/Priyasanampudi/terraform_resources.git//modules/tf-module-nsg?ref=main"
+    nsg_name                  = var.network_security_group_name
     resource_group_name       = azurerm_resource_group.rg.name
-    location                  = azurerm_resource_group.rg.location
+    location                  = var.location
+    tags                      = var.tags
 }
 resource "azurerm_network_security_rule" "nsgrules" {
   name                        = var.network_security_rule_name
@@ -18,7 +20,7 @@ resource "azurerm_network_security_rule" "nsgrules" {
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
   resource_group_name         = azurerm_resource_group.rg.name
-  network_security_group_name = azurerm_network_security_group.nsg.name
+  network_security_group_name = module.nsg.name
 }
 module "vnet" {
   source = "git::https://github.com/Priyasanampudi/terraform_resources.git//modules/tf-module-vnet?ref=main"
