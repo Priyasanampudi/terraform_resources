@@ -14,6 +14,6 @@ terraform {
     resource_group_name  = "test-githubactions"
     storage_account_name = "tfstatesa29"
     container_name       = "tfstatefile"
-    key                  = "vnet.tfstate"
+    key                  = "vnet1.tfstate"
   }
 }
