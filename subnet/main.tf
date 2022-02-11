@@ -5,4 +5,5 @@ module "apimsubnet" {
     vnet_name            = var.vnet_name 
     subnet_address_space = var.subnet_address_space
     enforce_private_link_endpoint_network_policies = var.enforce_private_link_endpoint_network_policies
+    service_endpoints        = var.service_endpoints
 }
