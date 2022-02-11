@@ -14,6 +14,10 @@ variable "subnet_address_space" {
     type = list(string)
     description = "Subnet prefix address list"
 }
+variable "service_end_points" {
+    type = list(string)
+    description = "service end points"
+}
 variable "enforce_private_link_endpoint_network_policies" {
     type = bool
     description = "private_link_endpoint_network_policies"
