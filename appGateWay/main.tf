@@ -81,6 +81,10 @@ locals {
   http_setting_name              = "${var.vnet_name}-be-htst"
   listener_name                  = "${var.vnet_name}-httplstn"
   request_routing_rule_name      = "${var.vnet_name}-rqrt"
+  capacity = {
+    min = 1 #Minimum capacity for autoscaling. Accepted values are in the range 0 to 100.
+    max = 3 #Maximum capacity for autoscaling. Accepted values are in the range 2 to 125.
+  }
 }
 # ---------- Create Application Gateway ------------
 resource "azurerm_application_gateway" "network" {
@@ -91,6 +95,11 @@ resource "azurerm_application_gateway" "network" {
   sku {
     name     = var.sku.name
     tier     = var.sku.tier
+  }
+  autoscale_configuration {
+    min_capacity = local.capacity.min
+    max_capacity = local.capacity.max
+  }
     capacity = var.sku.capacity
   }
 
