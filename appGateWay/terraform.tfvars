@@ -1,4 +1,4 @@
-resource_group_name     = "DigiHubRG"
+resource_group_name     = "rg-dih-dev-eus"
 vnet_name               = "diha-vnet"
 subnet_name             = "agw_Subnet"
 subnet_address_space    = ["172.16.5.0/24"]
