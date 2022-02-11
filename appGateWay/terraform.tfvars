@@ -8,6 +8,7 @@ pip_allocation_method   = "Static"
 private_ip_address_allocation = "Static"
 private_ip_address      = "172.16.5.5"
 app_gateway_name        = "agw-diha"
+service_endpoints       = []
 
 
 gateway_ip_configuration = {
