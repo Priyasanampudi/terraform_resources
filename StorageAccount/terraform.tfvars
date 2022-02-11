@@ -1,5 +1,5 @@
 location                     = "eastus"
-resource_group_name          = "DigiHubRG"
+resource_group_name          = "rg-dih-dev-eus"
 storage_account_name         = "dihasapri"
 vnet_name                    = "diha-vnet"
 subnet_name                  = "Core_Subnet"
