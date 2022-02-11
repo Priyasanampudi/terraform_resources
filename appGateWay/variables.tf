@@ -52,6 +52,10 @@ variable "sku" {
     })
     description = "SKU specification for application gateway resource"
 }
+variable "service_endpoints" {
+    type = list(string)
+    description = "service end points"
+}
 variable "tags"{
     description = "Provide tags for application gateway"
 }
