@@ -19,7 +19,7 @@ resource "azurerm_network_security_rule" "nsgrules" {
   source_address_prefix       = "*"
   destination_address_prefix  = "*"
   resource_group_name         = azurerm_resource_group.rg.name
-  network_security_group_name = module.nsg.name
+  network_security_group_name = var.network_security_group_name
 }
 module "vnet" {
   source = "git::https://github.com/Priyasanampudi/terraform_resources.git//modules/tf-module-vnet?ref=main"
