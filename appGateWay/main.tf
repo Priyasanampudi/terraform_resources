@@ -100,8 +100,6 @@ resource "azurerm_application_gateway" "network" {
     min_capacity = local.capacity.min
     max_capacity = local.capacity.max
   }
-    capacity = var.sku.capacity
-  }
 
   gateway_ip_configuration {
     name      = var.gateway_ip_configuration.name
