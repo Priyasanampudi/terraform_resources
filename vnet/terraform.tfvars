@@ -1,5 +1,5 @@
 location                     = "eastus"
-resource_group_name          = "rg-dih-dev-eus2"
+resource_group_name          = "rg-dih-dev-eus"
 vnet_name                    = "diha-vnet"
 vnet_address_space           = ["172.16.0.0/16"]
 tags                    = {
