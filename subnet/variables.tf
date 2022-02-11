@@ -14,7 +14,7 @@ variable "subnet_address_space" {
     type = list(string)
     description = "Subnet prefix address list"
 }
-variable "service_end_points" {
+variable "service_endpoints" {
     type = string
     description = "service end points"
 }
