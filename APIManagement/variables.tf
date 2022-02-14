@@ -22,6 +22,18 @@ variable "sku_name" {
     description = "Name of the sku to be used"
     type = string
 }
+variable "vnet_name" {
+    description = "Name of the virtual network"
+    type = string
+}
+variable "subnet_name" {
+    description = "Name of the subnet"
+    type = string
+}
+variable "virtual_network_type" {
+    description = "type of network to be used"
+    type = string
+}
 variable "tags" {
     description = "tags"
 }
