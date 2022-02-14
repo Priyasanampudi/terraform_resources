@@ -2,7 +2,7 @@ name: "Terraform Deploy"
 on:
   push:
     branches:
-      - main
+      - none
 
 # Update secrets workflows/creating-and-storing-encrypted-secrets
 
@@ -22,12 +22,12 @@ jobs:
       - name: "Terraform Format"
         id: fmt
         run: terraform fmt
-        working-directory: "./appGateWay"
+        working-directory: "./APIManagement"
 
       - name: "Terraform Init"
         id: init
         run: terraform init
-        working-directory: "./appGateWay"
+        working-directory: "./APIManagement"
         env:
           ARM_TENANT_ID: ${{secrets.AZURE_AD_TENANT_ID}}
           ARM_SUBSCRIPTION_ID: ${{secrets.AZURE_SUBSCRIPTION_ID}}
@@ -39,7 +39,7 @@ jobs:
         run: |
           terraform plan -out terraform.plan -var-file=terraform.tfvars 
           terraform show -json terraform.plan | tee terraform.json
-        working-directory: "./appGateWay"
+        working-directory: "./APIManagement"
         env:
           ARM_TENANT_ID: ${{secrets.AZURE_AD_TENANT_ID}}
           ARM_SUBSCRIPTION_ID: ${{secrets.AZURE_SUBSCRIPTION_ID}}
@@ -50,7 +50,7 @@ jobs:
       - name: "Terraform Apply"
         id: apply
         run: terraform apply -var-file=terraform.tfvars -auto-approve
-        working-directory: "./appGateWay"
+        working-directory: "./APIManagement"
         env:
           ARM_TENANT_ID: ${{secrets.AZURE_AD_TENANT_ID}}
           ARM_SUBSCRIPTION_ID: ${{secrets.AZURE_SUBSCRIPTION_ID}}
