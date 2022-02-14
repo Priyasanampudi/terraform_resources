@@ -2,7 +2,7 @@ name: "Terraform Deploy"
 on:
   push:
     branches:
-      - main
+      - none
 
 # Update secrets workflows/creating-and-storing-encrypted-secrets
 
