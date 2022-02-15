@@ -1,6 +1,6 @@
 location                     = "eastus"
 resource_group_name          = "rg-dih-dev-eus"
-api_management               = "apim-dih-dev-eus"
+api_management               = "apim-dih-eus-dev"
 publisher_name               = "MotifWorks"
 publisher_email              = "priyanka.sanampudi@motifworks.com"
 sku_name                     = "Developer_1"
