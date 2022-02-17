@@ -1,5 +1,5 @@
 ### Backend
-location            = eastus
+#location            = eastus
 #resource_group      = rg-dih-dev-eus
 
 ##### Vnet 
