@@ -25,7 +25,7 @@ terraform {
 module "rg" {
   source                = "../../modules/azure-rg"
   location              = var.location
-  resource_group_name   = var.resource_group_name
+  rgname                = "rg-dih-dev-eus"
   tags                  = var.tags
 }
 
