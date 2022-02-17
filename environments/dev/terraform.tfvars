@@ -1,9 +1,6 @@
 ### Backend
 resource_group_name  = rg-dih-dev-eus
-storage_account_name = statesa-dih-dev-eus
-container_name       = tfstatefile
-key                  = rg.tfstate
-
+location            = eastus
 ##### Vnet 
 
 tags                         = {
