@@ -1,5 +1,5 @@
 resource "azurerm_resource_group" "rg" {
   location = var.location
-  name     = "rg-dih-${var.environment}-eus"
+  name     = var.resource_group
   tags     = var.tags
 }
