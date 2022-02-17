@@ -24,8 +24,8 @@ terraform {
 ## to create a resource group
 module "rgdev" {
   source                = "../../modules/azure-rg"
-  #resource_group        = var.resource_group
-  #location              = var.location
+  resource_group        = var.resource_group
+  location              = var.location
   tags                  = var.tags
   
 }
