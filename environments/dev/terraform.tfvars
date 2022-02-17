@@ -1,6 +1,7 @@
 ### Backend
 resource_group_name  = rg-dih-dev-eus
 location            = eastus
+environment         = dev
 ##### Vnet 
 
 tags                         = {
