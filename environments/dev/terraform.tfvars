@@ -1,5 +1,5 @@
 location            = "eastus"
-resource_group      = "rg-dih-dev-eus"
+environment      = "dev"
 
 ##### Vnet 
 tags                         = {
