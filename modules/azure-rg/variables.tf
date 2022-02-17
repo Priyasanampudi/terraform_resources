@@ -5,9 +5,6 @@ variable "location" {
 variable "resource_group" {
   description = "Resource Group name"
 }
-variable "environment" {
-  description  = "environment of the application"
-}
 variable "tags" {
   description  = "Tags to be applied"
 }
