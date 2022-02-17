@@ -25,9 +25,9 @@ terraform {
 module "rg" {
   source                = "../../modules/azure-rg"
   location              = var.location
-  #rgname                = "rg-dih-dev-eus"
+  resource_group        = var.resource_group
   tags                  = var.tags
-  environment           = var.environment
+  
 }
 
 # ## vnet [ data block ?]
