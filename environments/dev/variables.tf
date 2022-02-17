@@ -1,5 +1,5 @@
 
 variable "tags" {
 }
-variable "environment" {
+variable "resource_group" {
 }
