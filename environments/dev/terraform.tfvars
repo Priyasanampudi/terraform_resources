@@ -1,5 +1,5 @@
 location            = "eastus"
-environment      = "dev"
+environment      = "Dev"
 
 ##### Vnet 
 tags                         = {
