@@ -1,8 +1,8 @@
 ### Backend
 location            = eastus
-resource_group      = rg-dih-dev-eus
-##### Vnet 
 
+##### Vnet 
+resource_group      = rg-dih-dev-eus
 tags                         = {
                                 Application  = "DigitalIntigrationHub"
                                 BusinessUnit = "MW pre-sales"
