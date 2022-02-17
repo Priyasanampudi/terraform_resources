@@ -3,7 +3,7 @@ variable "location" {
   type = string
   #default = "eastus"
 }
-variable "resource_group" {
+variable "environment" {
   description = "Resource Group name"
   type = string
   #default = "rg-dih-dev-eus"
