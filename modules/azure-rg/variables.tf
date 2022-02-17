@@ -8,3 +8,6 @@ variable "rgname" {
 variable "environment" {
   description  = "environment of the application"
 }
+variable "tags" {
+  description  = "Tags to be applied"
+}
