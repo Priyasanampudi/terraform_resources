@@ -191,7 +191,7 @@ resource "azurerm_application_gateway" "network" {
   location            = data.azurerm_resource_group.rg.location
 
   sku {
-    name     = "Standard_v2"
+    name     = "WAF_V2"
     tier     = "WAF_v2"
     capacity = 1
   }
