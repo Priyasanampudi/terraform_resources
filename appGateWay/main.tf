@@ -1,7 +1,7 @@
 data "azurerm_client_config" "current" {}
 
-data "azurerm_resource_group" "example"{
-    name = "ansumantest"
+data "azurerm_resource_group" "rg" {
+  name     = var.resource_group_name
 }
 
 resource "azurerm_user_assigned_identity" "base" {
