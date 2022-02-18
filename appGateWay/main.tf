@@ -160,7 +160,7 @@ resource "azurerm_subnet" "backend" {
 resource "azurerm_public_ip" "example" {
   name                = "example-pip"
   resource_group_name = var.resource_group_name
-  location            = data.azurerm_resource_group.example.location
+  location            = data.azurerm_resource_group.rg.location
   allocation_method   = "Static"
   sku = "standard"
 }
