@@ -5,16 +5,16 @@ data "azurerm_resource_group" "rg" {
 }
 
 resource "azurerm_user_assigned_identity" "base" {
-  resource_group_name = data.azurerm_resource_group.example.name
-  location            = data.azurerm_resource_group.example.location
+  resource_group_name = var.resource_group_name
+  location            = data.azurerm_resource_group.rg.location
   name                = "mi-appgw-keyvault"
 }
 
 
 resource "azurerm_key_vault" "kv" {
   name                       = "ansumankeyvault01"
-  location                   = data.azurerm_resource_group.example.location
-  resource_group_name        = data.azurerm_resource_group.example.name
+  location                   = data.azurerm_resource_group.rg.location
+  resource_group_name        = var.resource_group_name
   tenant_id = data.azurerm_client_config.current.tenant_id
   sku_name = "standard"
   access_policy {
@@ -138,28 +138,28 @@ resource "azurerm_key_vault_certificate" "example" {
 
 resource "azurerm_virtual_network" "example" {
   name                = "example-network"
-  resource_group_name = data.azurerm_resource_group.example.name
-  location            = data.azurerm_resource_group.example.location
+  resource_group_name = var.resource_group_name
+  location            = data.azurerm_resource_group.rg.location
   address_space       = ["10.254.0.0/16"]
 }
 
 resource "azurerm_subnet" "frontend" {
   name                 = "frontend"
-  resource_group_name  = data.azurerm_resource_group.example.name
+  resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.example.name
   address_prefixes     = ["10.254.0.0/24"]
 }
 
 resource "azurerm_subnet" "backend" {
   name                 = "backend"
-  resource_group_name  = data.azurerm_resource_group.example.name
+  resource_group_name  = var.resource_group_name
   virtual_network_name = azurerm_virtual_network.example.name
   address_prefixes     = ["10.254.2.0/24"]
 }
 
 resource "azurerm_public_ip" "example" {
   name                = "example-pip"
-  resource_group_name = data.azurerm_resource_group.example.name
+  resource_group_name = var.resource_group_name
   location            = data.azurerm_resource_group.example.location
   allocation_method   = "Static"
   sku = "standard"
@@ -187,13 +187,13 @@ resource "time_sleep" "wait_240_seconds" {
 
 resource "azurerm_application_gateway" "network" {
   name                = "example-appgateway"
-  resource_group_name = data.azurerm_resource_group.example.name
-  location            = data.azurerm_resource_group.example.location
+  resource_group_name = var.resource_group_name
+  location            = data.azurerm_resource_group.rg.location
 
   sku {
     name     = "Standard_v2"
-    tier     = "Standard_v2"
-    capacity = 2
+    tier     = "WAF_v2"
+    capacity = 1
   }
 
   gateway_ip_configuration {
